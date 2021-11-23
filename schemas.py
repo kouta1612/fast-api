@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 class Todo(BaseModel):
@@ -12,3 +13,11 @@ class TodoBody(BaseModel):
 
 class SuccessMsg(BaseModel):
     message: str
+
+class UserBody(BaseModel):
+    email: str
+    password: str
+
+class UserInfo(BaseModel):
+    id: Optional[str] = None
+    email: str
