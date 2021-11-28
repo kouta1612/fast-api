@@ -86,7 +86,7 @@ async def db_signup(data: dict) -> dict:
     new_user = await collection_user.find_one({"_id": user.inserted_id})
     return user_serializer(new_user)
 
-async def db_signin(data: dict) -> dict:
+async def db_signin(data: dict) -> str:
     email = data.get('email')
     password = data.get('password')
     user = await collection_user.find_one({"email": email})
