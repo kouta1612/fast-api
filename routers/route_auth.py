@@ -29,7 +29,7 @@ async def signin(request: Request, response: Response, user: UserBody, csrf_prot
     csrf_token = csrf_protect.get_csrf_from_headers(request.headers)
     csrf_protect.validate_csrf(csrf_token)
     user = jsonable_encoder(user)
-    token = db_signin(user)
+    token = await db_signin(user)
     response.set_cookie(
         key="access_token",
         value=f"Bearer {token}",
